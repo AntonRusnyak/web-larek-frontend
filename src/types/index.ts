@@ -9,6 +9,7 @@ export interface ICard {
     title: string;
     category: ProductCategory;
     price: number | null;
+    selected?: boolean;
 }
 
 // Интерфейс описывает заказ
@@ -17,35 +18,34 @@ export interface IOrder {
     email: string;
     phone: string;
     address: string;
-    total: number;
     items: string[];
-}
-
-// Главная страница
-export interface IMainPage {
-    counter: number; // Счетчик товаров в корзине
-    cards: ICard[]; //Каталог товаров
-}
-
-// Интерфейс описывает способ оплаты и адрес пользователя для заказа
-export interface IFormPayment {
-    payment: string;
-    address: string;
-}
-
-// Интерфейс описывает email и телефон пользователя для заказа
-export interface IFormContact {
-    email: string;
-    phone: string;
-}
-
-// Интерфейс описывает выполненную покупку
-export interface ICompletedPurchase {
-    id: string;
     total: number;
 }
 
-// Интерфейс описывает форму выполненной покупки
-export interface IFormCompletedPurchase {
-    total: number; // Списанные деньги
+export type IOrderInvoice = Omit<IOrder, 'items'> & {
+	items: string[];
+	total: number;
+};
+
+export type TOrderPayment = 'cash' | 'card';
+
+export type TOrderStep = 'shipment' | 'contacts';
+
+export interface IOrderResult {
+	id: string;
+	total: number;
+}
+
+export interface IActions {
+        onClick: (evt: MouseEvent) => void;
+}
+
+export interface IAddressForm {
+    address:string;
+    payment:string;
+}
+
+export interface IContactsForm {
+    phone:string;
+    email:string;
 }
