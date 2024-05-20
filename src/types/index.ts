@@ -41,8 +41,8 @@ export interface IActions {
 }
 
 export interface IAddressForm {
-    address:string;
     payment:string;
+    address:string;
 }
 
 export interface IContactsForm {

@@ -129,7 +129,7 @@ eventEmitter.on('order:open', () => {
     modal.render({
 		content: deliveryForm.render({
 			address: '',
-			valid: true,
+			valid: false,
 			errors: [],
 		}),
 	});
@@ -163,7 +163,7 @@ eventEmitter.on('order:submit', () => {
 		content: contact.render({
 			email: '',
 			phone: '',
-			valid: true,
+			valid: false,
 			errors: [],
 		}),
 	});

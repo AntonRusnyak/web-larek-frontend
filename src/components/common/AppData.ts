@@ -65,6 +65,7 @@ export class AppData extends Model<IAppData> {
 
 	setOrderField(field: keyof IAddressForm, value: string): void {
 		this.order[field] = value;
+		this.validateOrderForm();
 	}
 
 	validateOrderForm(): boolean {
@@ -85,6 +86,7 @@ export class AppData extends Model<IAppData> {
 
 	setContactsField(field: keyof IContactsForm, value: string): void {
 		this.order[field] = value;
+		this.validateContactsForm();
 	}
 
 	validateContactsForm(): boolean {
